@@ -18,34 +18,40 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextButton(
-            onPressed: () {
-              Navigator.pushNamed(
-                context,
-                "/press",
-              );
-            },
-            child: const Text(
-              "PressButton",
-              style: TextStyle(fontSize: 25),
+          Card(
+            child: TextButton(
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  "/press",
+                );
+              },
+              child: const Text(
+                "PressButton",
+                style: TextStyle(fontSize: 25),
+              ),
             ),
           ),
-          TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, "/init");
-            },
-            child: const Text(
-              "InitState",
-              style: TextStyle(fontSize: 25),
+          Card(
+            child: TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/init");
+              },
+              child: const Text(
+                "InitState",
+                style: TextStyle(fontSize: 25),
+              ),
             ),
           ),
-          TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, "/main");
-            },
-            child: const Text(
-              "InitState",
-              style: TextStyle(fontSize: 25),
+          Card(
+            child: TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/main");
+              },
+              child: const Text(
+                "Main Method",
+                style: TextStyle(fontSize: 25),
+              ),
             ),
           ),
         ],

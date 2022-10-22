@@ -17,7 +17,7 @@ class _MainMedhodState extends State<MainMedhod> {
         child: FutureBuilder(
           future: ServiceUser.getUser(),
           //? serviceUserdan nima return bo'lsa snapshotga kelib tushadi va snapshot datasini ekaranga bostirishimiz mumkin
-          builder: ((context, AsyncSnapshot <List<UserModel>> snap) {
+          builder: ((context, AsyncSnapshot<List<UserModel>> snap) {
             //? uchta shart yozamaiz
 
             if (!snap.hasData) {
@@ -30,10 +30,20 @@ class _MainMedhodState extends State<MainMedhod> {
               );
             } else {
               //? Data kelganda buni ko'rsat
-              return ListView.builder(itemCount: snap.data!.length,
+              return ListView.builder(
+                itemCount: snap.data!.length,
                 itemBuilder: (context, index) {
-                  return Text(
-                    "${snap.data![index].name}",
+                  return Card(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            'https://source.unsplash.com/random/$index'),
+                        radius: 25,
+                      ),
+                      title: Text("${snap.data![index].username}"),
+                      subtitle: Text("${snap.data![index].name}"),
+                      trailing: Text('${snap.data![index].address!.city}',style:const  TextStyle(color: Colors.blueAccent),),
+                    ),
                   );
                 },
               );
